@@ -17,7 +17,7 @@ public class ShopperApplicationsDAO {
 	public void addShopper(String fname, String lname, String  email, String cellNumber, String rcode) throws Exception{
 		
 		   Class.forName("com.mysql.jdbc.Driver");
-		   Connection connection = (Connection)DriverManager.getConnection ("jdbc:mysql://localhost/" ,"root", "MYPASSWORD");
+		   Connection connection = (Connection)DriverManager.getConnection ("jdbc:mysql://localhost/" ,"root", "Pass1234");
 		  
 		   try{
 			   createDB(connection);
@@ -79,7 +79,12 @@ public class ShopperApplicationsDAO {
 	}
 	
 	public static void main(String[] args) {
-		
+		try {
+			new ShopperApplicationsDAO().addShopper("Carlos", "Palomino", "dsfsdfsd", "3453453454", "");
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 }
