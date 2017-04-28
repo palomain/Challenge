@@ -25,35 +25,35 @@
 	  
 	</div>
 	
-	<form id ="applyForm" name="applyFrom" action="/action_page_post.php" onsubmit="return validateForm()" method="post" class="hidden" >
+	<form id ="applyForm" name="applyFrom" action="/InstacartChallenge/AddShopperApplication" onsubmit="return validateForm()" method="post" class="hidden" >
 		<span class="glyphicon glyphicon-remove" aria-hidden="true" style="float:right" onclick="hideForm()"></span>
 	  <div class="form-group">
 	    <label for="fname">First Name</label>
-	    <input type="text" class="form-control" id="fname"  placeholder="Enter your first name" maxLength="60">
-	    <small  id="fnameHelp" class="form-text text-muted hidden err-message "></small>
+	    <input type="text" class="form-control" id="fname" name="fname" placeholder="Enter your first name" maxLength="60">
+	    <small  id="fnameHelp" class="form-text  hidden err-message "></small>
 	   
 	  </div>
 	  <div class="form-group">
 	  	<label for="lname">Last Name</label>
-	    <input type="text" class="form-control" id="lname"  placeholder="Enter  your last name" maxLength="60">
-	    <small  id="lnameHelp" class="form-text text-muted hidden err-message "></small>
+	    <input type="text" class="form-control" id="lname"  name="lname" placeholder="Enter  your last name" maxLength="60">
+	    <small  id="lnameHelp" class="form-text  hidden err-message "></small>
 	    
 	  </div>
 	  <div class="form-group">
 	    <label for="userEmail">Email</label>
-	    <input type="email" class="form-control" id="userEmail" placeholder="Enter your Email">
-	    <small  id="emailHelp" class="form-text text-muted hidden err-message "></small>
+	    <input type="email" class="form-control" id="userEmail" name="email" placeholder="Enter your Email">
+	    <small  id="emailHelp" class="form-text  hidden err-message "></small>
 	  </div>	
 	  
 	  <div class="form-group">
 	    <label for="number">Cell phone number</label>
-	    <input type="text" class="form-control" id="number" placeholder="Enter your cell phone number">
-	    <small  id="numberHelp" class="form-text text-muted hidden err-message "></small>
+	    <input type="text" class="form-control" id="number" name="number "placeholder="Enter your cell phone number">
+	    <small  id="numberHelp" class="form-text  hidden err-message "></small>
 	  </div>
 	  <div class="form-group">
 	    <label for="rcode">Referral code</label>
-	    <input type="r" class="form-control" id="number" placeholder="Referral Code(optional)">
-	    <small  id="numberHelp" class="form-text text-muted hidden err-message "></small>
+	    <input type="r" class="form-control" id="number" name="rcode" placeholder="Referral Code(optional)">
+	    <small  id="numberHelp" class="form-text  hidden err-message "></small>
 	  </div>
 	  
 	  <button type="submit" class="btn btn-primary">Submit</button>

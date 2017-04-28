@@ -1,7 +1,11 @@
 .hidden {
+	 display : none;
+}
+
+.form-text.hidden {
 	display : none;
 }
 
 .err-message {
-	color: red;
+	color: red; 
 }

@@ -33,7 +33,7 @@ var validationInfo = [
 		{
 			id : "number",
 			errId: "numberHelp",
-			validators : [ { validator : testNotEmpty, message : "Please specify your cell phone name "}, 
+			validators : [ { validator : testNotEmpty, message : "Please specify your cell phone number "}, 
 						   { validator : testIs10DigitsNumber, message : "The cell phone number must be exactly 10 digits in length"}
 			]		
 		}
