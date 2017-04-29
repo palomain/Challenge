@@ -9,3 +9,8 @@
 .err-message {
 	color: red; 
 }
+
+.bgcheck-text{
+	text-align: justify;
+    text-justify: inter-word;
+}
