@@ -1,4 +1,4 @@
-package com.instacart.challenge.dao;
+package com.instacart.challenge.services;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -26,17 +26,16 @@ public class StoreSessionData extends HttpServlet {
 
 	@Override
 	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.service(arg0, arg1);
+		
 		
 		String email = arg0.getParameter("email");
 		String fname = arg0.getParameter("fname");
 		String lname = arg0.getParameter("lname");
 		String rcode = arg0.getParameter("rcode");
-		String phone = arg0.getParameter("phone");
+		String phone = arg0.getParameter("number");
 		
 		arg0.getSession(true).setAttribute("sessionData", new ShopperApplication(lname, fname, email, phone, rcode));
-		arg1.sendRedirect("/InstacartChallenge/backgroundcheck.html?email=" + email +"&fname="+fname +"&lname="+lname+"&rcode="+rcode+"&phone="+phone);
+		arg1.sendRedirect("/InstacartChallenge/backgroundcheck.html?email=" + email +"&fname="+fname +"&lname="+lname+"&rcode="+rcode+"&number="+phone);
 		
 		
 	}

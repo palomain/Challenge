@@ -2,6 +2,7 @@ package com.instacart.challenge.dao;
 
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import com.mysql.jdbc.Connection;
 
@@ -15,46 +16,44 @@ public class ShopperApplicationsDAO {
 	public final static String INSERT_SHOPPER = "INSERT INTO CHALLENGE.SHOPPERS_APPLICATIONS(FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, REFERRAL_CODE) VALUES(?, ?, ?, ?, ?)";
 	
 	public void addShopper(String fname, String lname, String  email, String cellNumber, String rcode) throws Exception{
-		
-		   Class.forName("com.mysql.jdbc.Driver");
-		   Connection connection = (Connection)DriverManager.getConnection ("jdbc:mysql://localhost/" ,"root", "Pass1234");
-		  
+			
+		   Connection connection = null;
 		   try{
-			   createDB(connection);
-			   createTable(connection);
+			   connection = getConnection();
 			   insertShopper(connection, fname, lname, email, cellNumber, rcode);
 		   }catch(Exception e){
 			   e.printStackTrace();
 		   }finally {
-			   if(connection != null){
-				   connection.close();
-			   }
+			  closeConnection(connection);
 		   }
 		  
 	}
 	
-	private void createDB(Connection conn) throws Exception{
-		PreparedStatement preparedStatement = conn.prepareStatement(CREATE_SCHEMA);
-		try{
-			preparedStatement.execute(); 
-		} catch(Exception e){
-			e.printStackTrace();
-		}finally {
-			if(preparedStatement != null){
-				preparedStatement.close();
+	private Connection getConnection() throws Exception{
+		Class.forName("com.mysql.jdbc.Driver");
+		Connection connection = (Connection)DriverManager.getConnection ("jdbc:mysql://localhost/" ,"root", "Pass1234");
+		return connection;
+	}
+	
+	private void closeConnection(Connection connection){
+		
+		if(connection != null){
+			try {
+				connection.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 	}
 	
-	private void createTable(Connection conn) throws Exception{
-		PreparedStatement preparedStatement = conn.prepareStatement(CREATE_TABLE);
-		try{
-			preparedStatement.execute(); 
-		} catch(Exception e){
-			e.printStackTrace();
-		}finally {
-			if(preparedStatement != null){
+	private void closePreparedStatement(PreparedStatement preparedStatement){
+		if(preparedStatement != null){
+			try {
 				preparedStatement.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 	}
