@@ -45,7 +45,7 @@ function validateForm(){
 	
 	var error = false;
 	
-	for(var i in validationsInfo ){
+	for(var i in validationInfo ){
 		var info = validationInfo[i];
 		var val = $("#"+i).val();	
 		var errMessageCont = $("#"+info.errId);	

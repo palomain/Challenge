@@ -32,7 +32,7 @@
 	</script>
 	<script src = "./js/validations.js"></script>
 	<script src = "./js/shopperApplication.js"></script>
-	
+				
 	<div class="jumbotron">
 	  <h1>Welcome to instacart!</h1>
 	  <div class="container">
@@ -42,11 +42,12 @@
 	  
 	</div>
 	
-	<form id ="applyForm" name="applyFrom" action="/InstacartChallenge/StoreSessionData" onsubmit="return validateForm()" method="post" class="hidden" >
-		
-	 	<div id="formFields"></div>
-	  <button type="submit" class="btn btn-primary">Submit</button>
-	 </form>
+		<form id ="applyForm" name="applyFrom"  action="/InstacartChallenge/StoreSessionData" onsubmit="return validateForm()" method="post" class="hidden" >
+			
+		 	<div id="formFields"></div>
+		  <button type="submit" class="btn btn-primary">Submit</button>
+		 </form>
+	
 
 </body>
 </html>

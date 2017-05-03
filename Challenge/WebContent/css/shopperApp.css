@@ -14,3 +14,10 @@
 	text-align: justify;
     text-justify: inter-word;
 }
+
+#applyForm{
+	border-style:ridge;
+	border-color:gray;
+	padding : 5px;
+	box-shadow: 5px 5px 5px #888888;
+}
