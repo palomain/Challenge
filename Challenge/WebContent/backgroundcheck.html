@@ -5,17 +5,14 @@
 <title>Background Check</title>
 </head>
 <body>
-	
 	<script src ="https://code.jquery.com/jquery-1.8.2.min.js"></script>
 	<script src="http://vitalets.github.io/x-editable/assets/bootstrap300/js/bootstrap.js" ></script>
-	
 	<link rel="stylesheet" href="http://vitalets.github.io/x-editable/assets/x-editable/bootstrap3-editable/css/bootstrap-editable.css" type="text/css" charset="utf-8"/>
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js">
-		
 	</script>
 	<script src="http://vitalets.github.io/x-editable/assets/x-editable/bootstrap3-editable/js/bootstrap-editable.js">
-		
 	</script>
+	<link rel="stylesheet"  href="./css/shopperApp.css" >
 	<link rel="stylesheet" href="http://vitalets.github.io/x-editable/assets/bootstrap300/css/bootstrap.css" type="text/css" charset="utf-8" />
 	<script src = "./js/validations.js"></script>
 	<script src = "./js/backgroundcheck.js"></script>
@@ -36,13 +33,16 @@
 	
 		<p>
 			
-		<input type="checkbox" name="auth"  id="auth"/>I hereby authorize Instacart to conduct the criminal background check described above.  In connection with this, I also authorize the use of law enforcement agencies and/or private background check organizations to assist Instacart in collecting this information.  Validity Screening Solutions has been secured as a third party vendor (consumer reporting agency) to assist Instacart in collecting and verifying information.
+		<span class="important">*</span><input type="checkbox" name="auth"  id="auth"/>   I hereby authorize Instacart to conduct the criminal background check described above.  In connection with this, I also authorize the use of law enforcement agencies and/or private background check organizations to assist Instacart in collecting this information.  Validity Screening Solutions has been secured as a third party vendor (consumer reporting agency) to assist Instacart in collecting and verifying information.
 
 			I also am aware that records of arrests on pending charges and/or convictions are not an absolute bar to employment.  Such information will be used to determine whether the results of the background check reasonably bear on my trustworthiness or my ability to perform the duties of my position as an Instacart employee.
 
 		</p>
 		
-		<h3>Please verify your information below before submitting</h3>
+		<br />
+		<small  id="authNotChecked" class="form-text hidden err-message ">*Please check the box before submitting to authorize background check and store your information in our candidate database.</small>
+		
+		<h4>Please verify your information below before submitting</h4>
 		
 		<div id="formFields">
 			<table border="0" cellspacing="5" cellpadding="5" class="table table-bordered table-striped">
@@ -66,7 +66,7 @@
                     </tr>
                     <tr>         
                         <td>Referral Code</td>
-                        <td><a href="#" class="myeditable editable" id="rcodeL" data-type="text" data-name="rcode" data-placement="right"  data-title="Enter referral code"></a></td>
+                        <td><a href="#" class="myeditable editable" id="rcode" data-type="text" data-name="rcode" data-placement="right"  data-title="Enter referral code"></a></td>
                     </tr>  
               </tbody>      
 			</table>

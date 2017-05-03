@@ -2,16 +2,14 @@
 
 
 function showForm(){
-	$("#applyForm").removeClass("hidden");
+	$("#apply-form").removeClass("hidden");
 }
 
 function hideForm(){
-	$("#applyForm").addClass("hidden");
+	$("#apply-form").addClass("hidden");
 }
 
-window.onload = function(){
-	$('#formFields').load('./formFields.html');
-};
+
 
 
 

@@ -10,14 +10,23 @@
 	color: red; 
 }
 
+.important{
+	color: red; 
+}
+
 .bgcheck-text{
 	text-align: justify;
     text-justify: inter-word;
 }
 
-#applyForm{
-	border-style:ridge;
-	border-color:gray;
-	padding : 5px;
-	box-shadow: 5px 5px 5px #888888;
+#apply-form .form-control{
+	font-size : 14px;
+}
+
+#apply-form .form-control{
+	font-size : 14px;
+}
+
+#submitShopper {
+	font-size : 14px;
 }

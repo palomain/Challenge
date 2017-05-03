@@ -1,24 +1,39 @@
 
-var fields = null;
+let fields = null;
 
 window.onload = function(){
-		var url = window.location.href;
+		const url = window.location.href;
 		
-		var fieldsStr = url.split("?")[1];
+		const fieldsStr = url.split("?")[1];
 		fields = new URLSearchParams(fieldsStr);
 		
-		var keys = fields.keys();
+		const keys = fields.keys();
+		
+		const mandatoryFields = ['email', 'fname', 'lname', 'number'];
+		
+		for(let field of mandatoryFields){
+			if(!fields.has(field) || fields.get(field) == null || fields.get(field).trim().length == 0 ){
+				goBack();
+				
+				return;
+			}
+		}
 		
 		for(let key of keys){
-			var val = fields.get(key);
-			var el = $("#"+key );
-			el.html(val);
-			el.attr("disabled", "disabled");
+			const val = fields.get(key);
+			const el = $("#"+key );
+			if(val != null && val.trim().length > 0 ){
+				el.html(val);
+			}
 			
 			el.editable({
 	    		validate: function(value) {
-	    			var validators = validationInfo[key].validators;
-	       			for( var j = 0; j < validators.length; j++){
+	    			if(!validationInfo[key]){
+	    				return undefined;
+	    			}
+	    			
+	    			const validators = validationInfo[key].validators;
+	       			for( let j = 0; j < validators.length; j++){
 	       				if(!validators[j].validator(value)){
 	       					return validators[j].message;
 	       				}
@@ -28,6 +43,12 @@ window.onload = function(){
 		}
 		
 		$('#save_shopper').click(function() {
+			$('#authNotChecked').addClass("hidden");
+			if(!$("#auth").attr("checked")){
+				$('#authNotChecked').removeClass("hidden");
+				return false;
+			}
+			
 		    $('.myeditable').editable('submit', {   //call submit
 		        url: './SaveShopperApplication',
 		        success : function(){
