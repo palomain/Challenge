@@ -19,14 +19,7 @@
     text-justify: inter-word;
 }
 
-#apply-form .form-control{
+#apply-form .form-control, #submitShopper{
 	font-size : 14px;
 }
 
-#apply-form .form-control{
-	font-size : 14px;
-}
-
-#submitShopper {
-	font-size : 14px;
-}
