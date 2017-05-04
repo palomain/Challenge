@@ -41,7 +41,7 @@ public class SaveShopperApplication extends HttpServlet {
 
 		Formatter formatter = new Formatter();
 		try {
-			System.out.println(formatter.format("Adding shopper information to db %s, %s,%s, %s, %s", fname, lname, email, phone, rcode));
+			
 			dao.addShopper(fname, lname, email, phone, rcode);
 			arg1.setStatus(HttpServletResponse.SC_OK);
 		} catch (Exception e) {

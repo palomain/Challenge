@@ -16,13 +16,9 @@ import com.mysql.jdbc.Connection;
 
 public class ShopperApplicationsDAO {
 	
-	public final static String CREATE_SCHEMA  = "CREATE SCHEMA IF NOT EXISTS CHALLENGE ";
-	
-	public final static String CREATE_TABLE  = "create table IF NOT EXISTS challenge.shoppers_applications(id int not null auto_increment,first_name varchar(60) not null ,  last_name varchar(60) not null ,  email varchar(200) not null ,   phone_number varchar(10) not null,  referral_code varchar(20) ,  PRIMARY KEY ( id ))";
-	
 	public final static String INSERT_SHOPPER = "INSERT INTO CHALLENGE.SHOPPERS_APPLICATIONS(FIRST_NAME, LAST_NAME, EMAIL, PHONE_NUMBER, REFERRAL_CODE) VALUES(?, ?, ?, ?, ?)";
 	
-	public final static String GET_STATISTICS = "select count(id) as applied, year(application_date) as app_year, weekofyear(application_date) as app_week, count(if(quiz_status > 0, 1, NULL)) as quiz_started, count(if(quiz_status = 2, 1, NULL)) as quiz_completed, count(if(onboard_status > 0, 1, NULL)) as onboarding_requested, count(if(onboard_status = 2, 1, NULL)) as onboarding_completed, count(if(hiring_status = 1, 1, NULL)) as hired, count(if(hiring_status = 2, 1, NULL)) as rejected from challenge.application_status where application_date between ? and ? group by year(application_date), weekofyear(application_date)";
+	public final static String GET_STATISTICS = "select count(id) as applied, year(application_date) as app_year, weekofyear(application_date) as app_week, count(if(quiz_status > 0, 1, NULL)) as quiz_started, count(if(quiz_status = 2, 1, NULL)) as quiz_completed, count(if(onboarding_status > 0, 1, NULL)) as onboarding_requested, count(if(onboarding_status = 2, 1, NULL)) as onboarding_completed, count(if(hiring_status = 1, 1, NULL)) as hired, count(if(hiring_status = 2, 1, NULL)) as rejected from challenge.application_status where application_date between ? and ? group by year(application_date), weekofyear(application_date)";
 	
 	public void addShopper(String fname, String lname, String  email, String cellNumber, String rcode) throws Exception{
 			
@@ -97,7 +93,7 @@ public class ShopperApplicationsDAO {
 	
 	private Connection getConnection() throws Exception{
 		Class.forName("com.mysql.jdbc.Driver");
-		Connection connection = (Connection)DriverManager.getConnection ("jdbc:mysql://localhost/" ,"root", "Pass1234");
+		Connection connection = (Connection)DriverManager.getConnection ("jdbc:mysql://localhost/" ,"db_user", "Pass1234");
 		return connection;
 	}
 	
@@ -148,19 +144,8 @@ public class ShopperApplicationsDAO {
 		} catch(Exception e){
 			e.printStackTrace();
 		}finally {
-			if(preparedStatement != null){
-				preparedStatement.close();
-			}
+			closePreparedStatement(preparedStatement);
 		}
 	}
 	
-	public static void main(String[] args) {
-		try {
-			new ShopperApplicationsDAO().addShopper("Carlos", "Palomino", "dsfsdfsd", "3453453454", "");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-
 }

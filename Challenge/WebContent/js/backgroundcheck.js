@@ -1,32 +1,17 @@
 
-let fields = null;
+
 
 window.onload = function(){
-		const url = window.location.href;
 		
-		const fieldsStr = url.split("?")[1];
-		fields = new URLSearchParams(fieldsStr);
+		const fields = ['email', 'fname', 'lname', 'number', 'rcode'];
 		
-		const keys = fields.keys();
-		
-		const mandatoryFields = ['email', 'fname', 'lname', 'number'];
-		
-		for(let field of mandatoryFields){
-			if(!fields.has(field) || fields.get(field) == null || fields.get(field).trim().length == 0 ){
-				goBack();
-				
-				return;
-			}
-		}
-		
-		for(let key of keys){
-			const val = fields.get(key);
+		for(let key of fields){
+			
 			const el = $("#"+key );
-			if(val != null && val.trim().length > 0 ){
-				el.html(val);
-			}
 			
 			el.editable({
+				pk  : key,
+				url : './UpdateSessionData', 
 	    		validate: function(value) {
 	    			if(!validationInfo[key]){
 	    				return undefined;
@@ -59,8 +44,27 @@ window.onload = function(){
 		        }
 		    }); 
 		});
+		
+		setTimeout(updateTimeLeft, 1000);
 	
 };
+
+function updateTimeLeft(){
+	const timeLeftSpan = $("#time-left");
+	let timeStamp = +(timeLeftSpan.attr("timeLeft"));
+	const timeLeft = timeStamp - 1000;
+	timeStamp = timeStamp/1000;
+	const hours = ~~(timeStamp/3600);
+	timeStamp = ~~(timeStamp%3600);
+	
+	const minutes = ~~(timeStamp/60);
+	const seconds = ~~(timeStamp%60);
+	
+	timeLeftSpan.attr("timeLeft", timeLeft);
+	timeLeftSpan.html((hours/10<1? "0" : "") + hours + ":" + (minutes/10<1? "0" : "") + minutes + ":" + (seconds/10<1? "0" : "") + seconds  );
+	
+	setTimeout(updateTimeLeft, 1000);
+}
 
 function goBack(){
 	window.location = "./DestroySession";

@@ -11,21 +11,21 @@
 		String lname = app.getLastName();
 		String rcode = app.getReferralCode();
 		String phone = app.getPhoneNumber();
-		response.sendRedirect("/InstacartChallenge/backgroundcheck.html?email=" + email +"&fname="+fname +"&lname="+lname+"&rcode="+rcode+"&number="+phone); 
+		response.sendRedirect("/InstacartChallenge/backgroundcheck.jsp"); 
 	}
  %>   
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Welcome to Instacart</title>
 </head>
 
 <body>
 	<link rel="stylesheet"  href="./css/shopperApp.css" >
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+	<script src="http://vitalets.github.io/x-editable/assets/bootstrap300/js/bootstrap.js" ></script>
 	<script src ="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="http://vitalets.github.io/x-editable/assets/bootstrap300/css/bootstrap.css" type="text/css" charset="utf-8" />
 	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" type="text/css" media="screen" title="no title" charset="utf-8"/>
 	<script src = "https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.min.js">
 		
@@ -73,7 +73,7 @@
 				    <input type="text" class="form-control" id="rcode" name="rcode" placeholder="Referral Code(optional)">
 				    <small  id="numberHelp" class="form-text  hidden err-message "></small>
 				  </div>
-				  <button type="submit" class="btn btn-primary" id="submitShopper">Submit</button>
+				  <div style="text-align:center;"><button type="submit" class="btn btn-primary" id="submitShopper">Submit</button></div>
 			 </div> 
 		  
 		 </form>
